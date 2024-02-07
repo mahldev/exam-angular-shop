@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Injector, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Phone } from '@models';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class PhoneService {
   private httpClient = inject(HttpClient);
   private api = 'http://localhost:3000/db.json';
 
-  private phones: Phone[] = this.httpClient.get(this.api);
+  private phones = this.httpClient.get<Phone[]>(this.api);
 
-  private phones: getPhones = () => this.phones;
+  getPhones = () => this.phones;
 }

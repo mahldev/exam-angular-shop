@@ -15,6 +15,6 @@ export class ProductDetailsComponent {
   private phoneService = inject(PhoneService);
 
   id = this.activatedRoute.snapshot.params['id'];
-  phones: Phone[] = this.phoneService.getPhones();
+  phones = this.phoneService.getPhones();
   selectedPhone: Phone | undefined = this.phones.find((p) => p.id === this.id);
 }
