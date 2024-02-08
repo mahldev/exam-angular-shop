@@ -12,7 +12,7 @@ import { Phone } from '@models';
       <div class="flex flex-col gap-4">
         <a
           title="{{ phone.title }} details"
-          routerLink="products/{{ phone.id }}"
+          routerLink="/products/{{ phone.id }}"
           class="text-2xl text-blue-600"
           >{{ phone.title }}</a
         >
@@ -31,5 +31,5 @@ export class MobileCardComponent {
   @Input() phone: Phone | null = null;
 
   share = () => alert('The product has been shared');
-  notify = () => alert('notify');
+  notify = () => alert('You will be notified when the product goes on sale');
 }

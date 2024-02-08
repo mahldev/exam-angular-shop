@@ -4,4 +4,5 @@ export type Phone = {
   description?: string;
   price: number;
   stock: number;
+  provider: string;
 };

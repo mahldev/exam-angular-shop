@@ -1,0 +1,35 @@
+{
+  "phones": [
+    {
+      "id": "1",
+      "title": "Phone XL",
+      "description": "A large phone with one of the best screens",
+      "price": 799.0,
+      "stock": 10,
+      "provider": "Apple"
+    },
+    {
+      "id": "2",
+      "title": "Phone Mini",
+      "description": "A great phone with one of the best cameras",
+      "price": 699.0,
+      "stock": 0,
+      "provider": "Apple"
+    },
+    {
+      "id": "3",
+      "title": "Phone Standard",
+      "price": 499.0,
+      "stock": 3,
+      "provider": "Apple"
+    },
+    {
+      "id": "4",
+      "title": "Samsung Pro",
+      "description": "The ultimate phone with top-notch features",
+      "price": 999.0,
+      "stock": 5,
+      "provider": "Samsung"
+    }
+  ]
+}

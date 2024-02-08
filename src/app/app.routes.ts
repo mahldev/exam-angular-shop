@@ -3,6 +3,8 @@ import {
   ProductListComponent,
   ProductDetailsComponent,
   CheckoutComponent,
+  ProviderListComponent,
+  ProviderDetailsComponent,
 } from '@routes';
 
 export const routes: Routes = [
@@ -13,4 +15,14 @@ export const routes: Routes = [
     title: 'Product details',
   },
   { path: 'checkout', component: CheckoutComponent, title: 'Checkout' },
+  {
+    path: 'providers',
+    component: ProviderListComponent,
+    title: 'Provider list',
+  },
+  {
+    path: 'providers/:name',
+    component: ProviderDetailsComponent,
+    title: 'Provider details',
+  },
 ];

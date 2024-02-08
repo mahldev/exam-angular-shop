@@ -7,7 +7,7 @@ import { PhoneResponseResult } from '@models';
 })
 export class PhoneService {
   private httpClient = inject(HttpClient);
-  private apiURL = 'assets/db.json';
+  private apiURL = 'assets/phones.json';
 
   getPhones = () => this.httpClient.get<PhoneResponseResult>(this.apiURL);
 }

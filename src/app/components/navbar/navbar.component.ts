@@ -7,7 +7,14 @@ import { Router, RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <nav class="flex w-[1200px] justify-between items-center py-6 m-auto">
-      <a routerLink="/" class="text-2xl text-white">My Store</a>
+      <div>
+        <ul class="flex items-center justify-center gap-6">
+          <li><a routerLink="/" class="text-2xl text-white">My Store</a></li>
+          <li>
+            <a routerLink="providers/" class="text-xl text-white">Providers</a>
+          </li>
+        </ul>
+      </div>
       <button
         class="flex bg-white px-6 py-3 text-blue-500 gap-2 rounded-md hover:scale-105 transition"
         (click)="handleClick()"

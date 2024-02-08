@@ -14,4 +14,6 @@ export class ShoppingCartService {
 
   removeProduct = (productId: string) =>
     (this.shoppingCart = this.shoppingCart.filter((p) => p.id !== productId));
+
+  clearCart = () => (this.shoppingCart = []);
 }
