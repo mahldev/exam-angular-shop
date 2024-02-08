@@ -1,1 +1,2 @@
-export { Phone } from './Phone';
+export * from './Phone';
+export * from './PhoneResponseResult';

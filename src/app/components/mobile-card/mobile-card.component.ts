@@ -1,28 +1,35 @@
-import { Component, Input, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ButtonComponent } from '@components';
 import { Phone } from '@models';
 
 @Component({
   selector: 'app-mobile-card',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, RouterLink],
   template: `
     @if (phone) {
       <div class="flex flex-col gap-4">
-        <p class="text-2xl text-blue-600">{{ phone.title }}</p>
+        <a
+          title="{{ phone.title }} details"
+          routerLink="products/{{ phone.id }}"
+          class="text-2xl text-blue-600"
+          >{{ phone.title }}</a
+        >
         @if (phone.description) {
           <p>Description: {{ phone.description }}</p>
         }
-        <app-button text="Share" [handleClick]="handleClick" />
+        <app-button text="Share" [handleClick]="share" />
+        @if (phone.stock === 0) {
+          <app-button text="Notify Me" [handleClick]="notify" />
+        }
       </div>
     }
   `,
 })
 export class MobileCardComponent {
-  private router = inject(Router);
-
   @Input() phone: Phone | null = null;
 
-  handleClick = () => this.router.navigate([`products/${this.phone?.id}`]);
+  share = () => alert('The product has been shared');
+  notify = () => alert('notify');
 }

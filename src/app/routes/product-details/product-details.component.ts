@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PhoneDetailsComponent } from '@components';
 import { Phone } from '@models';
@@ -10,11 +10,17 @@ import { PhoneService } from '@services';
   imports: [PhoneDetailsComponent],
   template: ` <app-phone-details [phone]="selectedPhone" /> `,
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private phoneService = inject(PhoneService);
 
+  selectedPhone: Phone | undefined;
   id = this.activatedRoute.snapshot.params['id'];
-  phones = this.phoneService.getPhones();
-  selectedPhone: Phone | undefined = this.phones.find((p) => p.id === this.id);
+
+  ngOnInit(): void {
+    this.phoneService.getPhones().subscribe({
+      next: (response) =>
+        (this.selectedPhone = response.phones.find((p) => p.id === this.id)),
+    });
+  }
 }

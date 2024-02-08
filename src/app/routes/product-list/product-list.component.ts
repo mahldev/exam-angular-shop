@@ -8,17 +8,17 @@ import { PhoneService } from '@services';
   standalone: true,
   imports: [MobileCardComponent, ButtonComponent, AsyncPipe],
   template: `
-    <h1 class="text-xl">Products</h1>
-    <div class="flex flex-col mt-6 gap-12">
-      @for (phone of phones | async; track phone.id) {
-        <app-mobile-card [phone]="phone" ] />
-      }
-    </div>
+    @if (phones$ | async; as response) {
+      <h1 class="text-xl">Products</h1>
+      <div class="flex flex-col mt-6 gap-12">
+        @for (phone of response.phones; track phone.id) {
+          <app-mobile-card [phone]="phone" />
+        }
+      </div>
+    }
   `,
-  styles: ``,
 })
 export class ProductListComponent {
   private phoneService = inject(PhoneService);
-
-  phones = this.phoneService.getPhones();
+  phones$ = this.phoneService.getPhones();
 }

@@ -11,7 +11,7 @@ import { NavbarComponent } from '@components';
       <header class="bg-blue-500">
         <app-navbar />
       </header>
-      <main class="w-[1200px] m-auto mt-6">
+      <main class="w-[1200px] m-auto mt-6 h-screen">
         <router-outlet />
       </main>
     </body>
