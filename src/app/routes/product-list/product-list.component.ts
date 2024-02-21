@@ -1,9 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ButtonComponent, MobileCardComponent } from '@components';
-import { PhoneResponseResult } from '@models';
 import { PhoneService } from '@services';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -22,6 +20,5 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent {
   private phoneService = inject(PhoneService);
-  phoneResponse: Observable<PhoneResponseResult> =
-    this.phoneService.getPhones();
+  phoneResponse = this.phoneService.getPhones();
 }

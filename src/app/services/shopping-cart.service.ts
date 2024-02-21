@@ -7,6 +7,16 @@ import { Phone } from '@models';
 export class ShoppingCartService {
   private shoppingCart: Phone[] = [];
 
+  private saveToHistory = () => {
+    const history = JSON.parse(localStorage.getItem('historiy') || '[]');
+    localStorage.setItem(
+      'historiy',
+      JSON.stringify([...history, ...this.shoppingCart]),
+    );
+  };
+
+  private clearCart = () => (this.shoppingCart = []);
+
   state = () => this.shoppingCart;
 
   addProduct = (product: Phone) =>
@@ -15,5 +25,16 @@ export class ShoppingCartService {
   removeProduct = (productId: string) =>
     (this.shoppingCart = this.shoppingCart.filter((p) => p.id !== productId));
 
-  clearCart = () => (this.shoppingCart = []);
+  pucharse = () => {
+    this.saveToHistory();
+    this.clearCart();
+  };
+
+  onHistory = (id: string) => {
+    const history: Phone[] = JSON.parse(
+      localStorage.getItem('historiy') || '[]',
+    );
+
+    return history.some((p) => p.id === id);
+  };
 }

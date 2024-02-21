@@ -29,6 +29,9 @@ import { RouterLink } from '@angular/router';
         }
         <app-button text="Buy" [handleClick]="handleClick" />
       </div>
+      @if (onHistory(phone.id)) {
+        <p class="text-red-500 mt-3">you have already purchased this product</p>
+      }
     }
   `,
 })
@@ -39,4 +42,6 @@ export class PhoneDetailsComponent {
 
   handleClick = () =>
     this.phone && this.shoppingCartService.addProduct(this.phone);
+
+  onHistory = this.shoppingCartService.onHistory;
 }

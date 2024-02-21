@@ -75,15 +75,11 @@ export class CheckoutComponent {
 
   shoppingCart = this.shoppinCartService.state;
   remove = this.shoppinCartService.removeProduct;
-  pucharse = () => alert('pucharse');
+  pucharse = this.shoppinCartService.pucharse;
 
   handleSubmit = (event: Event) => {
     event.preventDefault();
-    this.shoppinCartService.clearCart();
-
-    alert(
-      `Your order has been submitted name: ${this.checkoutForm.value.name} address: ${this.checkoutForm.value.address}`,
-    );
+    this.pucharse();
     this.checkoutForm.reset();
   };
 }
